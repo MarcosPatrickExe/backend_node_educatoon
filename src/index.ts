@@ -1,31 +1,45 @@
 import express, { Request, Response } from "express";
-import { AppDataSource } from './data-source';
-import { DataSource } from "typeorm";
+import { appDataSource } from './data-source';
+//import { DataSource } from "typeorm";
+import 'dotenv/config'; // mt necessario para reconhecer o arquivo .env dentro do Node
 
 
+async function initialize() {
 
-AppDataSource
-    .initialize()// iniciando conexao com o database
-        .then( (value :DataSource)=>{
-            //let nameDB = value.name;
+    try{
+        await appDataSource.initialize();
+        console.log("Connection with database has been estabished!!!");
+        //return appDataSource;
 
-            const app = express();
+        const app = express();
 
-            app.use( express.json() );//JSON serao tipo de dado usado pela API
-        
-            app.get('/', (request :Request, response :Response)=>{
-                 return response.json("Connection success!!");
-            });
+        app.use( express.json() );//JSON serao tipo de dado usado pela API
 
-            const appPort = process.env.APPLICATION_PORT as string;
-
-            return app.listen( Number( appPort), "localhost", 0, ()=>{
-                console.log("Server is running......");
-            });
-            
-        }).catch((error :any)=>{
-            console.log(error);
+        app.get('/', (request :Request, response :Response)=>{
+            response.json({message: "success!!"});
+            response.send("okay!!");
         });
+
+        const appPort = process.env.APPLICATION_PORT;
+
+        app.listen( appPort, ()=>{
+            console.log(`Listening on port ${appPort}`);
+        });
+
+    }catch(error){
+        console.log("Error de inicializacao do DataSource: "+ error);
+    }
+}
+/*
+.catch((error :any)=>{
+    console.log("ERRO DE CONEXAO COM O DATABASE: "+ error);
+});
+
+*/
+
+initialize();
+
+
 
 
 
