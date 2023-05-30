@@ -11,7 +11,7 @@ export class Student{
 
     @ManyToOne(()=> SchoolFamily, (school :SchoolFamily) => school.students )
     @JoinColumn({name :'ID_school_family'}) // definindo nome da foreign key
-    school :SchoolFamily; //ID_school :number;
+    schoolFamily :SchoolFamily; //ID_school :number;
 
     @Column({ type: 'char varying', length: 100 })
     name :string;

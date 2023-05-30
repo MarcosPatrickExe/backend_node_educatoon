@@ -9,9 +9,9 @@ export class Teacher{
     @PrimaryGeneratedColumn()
     ID_teacher :number;
  
-    @ManyToOne(()=> SchoolFamily, (school :SchoolFamily)=> school.teachers )
+    @ManyToOne(()=> SchoolFamily, (school :SchoolFamily) => school.teachers )
     @JoinColumn({ name: 'ID_school_family'})
-    school :SchoolFamily;
+    schoolFamily :SchoolFamily;
 
     @Column({ type: 'char varying', length :100 })
     name :string;

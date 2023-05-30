@@ -1,6 +1,7 @@
 import { Column, Double, Entity, IsNull, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Student } from './Student';
 import { Teacher } from './Teacher';
+import { FamilyMember } from "./FamilyMember";
 
 
 @Entity('schools_familys')
@@ -51,9 +52,12 @@ export class SchoolFamily{
     @Column({ type: 'int' })
     phone :number;
 
-    @OneToMany(() => Student, (student :Student) => student.school  )
+    @OneToMany(() => Student, (student :Student) => student.schoolFamily  )
     students :Student[];
 
-    @OneToMany(()=> Teacher, (teacher :any) => teacher.schools )
+    @OneToMany(()=> Teacher, (teacher :Teacher) => teacher.schoolFamily )
     teachers: Teacher[];
+    
+    @OneToMany(()=> FamilyMember, ( fm :FamilyMember) => fm.schoolFamily )
+    familyMembers :FamilyMember[];
 }
