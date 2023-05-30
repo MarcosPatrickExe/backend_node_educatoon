@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Student } from './Student';
 
 
 @Entity('doubts')
@@ -7,8 +8,9 @@ export class Doubt{
     @PrimaryGeneratedColumn()
     ID_doubt :number;
 
-    @Column()
-    ID_student :number;
+    @ManyToOne(()=> Student, (student :Student)=> student.doubts  )
+    @JoinColumn({name: 'enrollment'})
+    student :Student;
 
     @Column({name: 'doubt', type: 'text'})
     text :string;
@@ -18,6 +20,9 @@ export class Doubt{
 
     @Column({ type: 'date'})
     date :Date;
+
+//   @Column()
+//   ID_student :number;
 }
 
 

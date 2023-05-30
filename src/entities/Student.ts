@@ -1,14 +1,17 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn } from 'typeorm';
+import { SchoolFamily } from './SchoolFamily';
+import { Doubt } from './Doubt';
 
 
 @Entity('students')
-export class Students{
+export class Student{
 
     @PrimaryGeneratedColumn()
-    ID_student :number;
+    enrollment :number; //enrollment = inscricao/matricula
 
-    @Column()
-    ID_school :number;
+    @ManyToOne(()=> SchoolFamily, (school :SchoolFamily) => school.students )
+    @JoinColumn({name :'ID_school_family'}) // definindo nome da foreign key
+    school :SchoolFamily; //ID_school :number;
 
     @Column({ type: 'char varying', length: 100 })
     name :string;
@@ -21,6 +24,9 @@ export class Students{
 
     @Column({ type: 'int'})
     progress :string;
+
+    @OneToMany( ()=> Doubt, (doubts :Doubt) => doubts.student )
+    doubts :Doubt[];
 }
 
 
