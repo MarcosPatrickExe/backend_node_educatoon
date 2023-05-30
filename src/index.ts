@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
 import { appDataSource } from './data-source';
-//import { DataSource } from "typeorm";
 import 'dotenv/config'; // mt necessario para reconhecer o arquivo .env dentro do Node
 
 
@@ -9,7 +8,7 @@ async function initialize() {
     try{
         await appDataSource.initialize();
         console.log("Connection with database has been estabished!!!");
-        //return appDataSource;
+
 
         const app = express();
 

@@ -5,6 +5,7 @@ import { DataSource } from 'typeorm';
 
 const PORT = process.env.DB_PORT as number | undefined;
 
+
 export const appDataSource = new DataSource({
     type: "postgres",
     host: process.env.DB_HOST,
@@ -13,4 +14,3 @@ export const appDataSource = new DataSource({
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
 });
-
