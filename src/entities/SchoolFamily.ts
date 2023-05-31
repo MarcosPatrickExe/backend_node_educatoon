@@ -4,7 +4,7 @@ import { Teacher } from './Teacher';
 import { FamilyMember } from "./FamilyMember";
 
 
-@Entity('schools_familys')
+@Entity('schools_families')
 export class SchoolFamily{
 
     @PrimaryGeneratedColumn() // chave-primaria e auto-incremento
