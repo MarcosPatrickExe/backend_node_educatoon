@@ -19,7 +19,7 @@ export class SchoolFamily{
     @Column({ type: 'int', nullable: true})
     CPF :number;
 
-    @Column({ type: 'char varying'})
+    @Column({ type: 'char varying', length: 10})
     plan_type :string;
 
     @Column({ type: 'date' })
@@ -49,8 +49,11 @@ export class SchoolFamily{
     @Column()
     password :string;
 
-    @Column({ type: 'int' })
+    @Column({ type: 'int', nullable: true })
     phone :number;
+
+    @Column({ type: 'int'})
+    CEP :number;
 
     @OneToMany(() => Student, (student :Student) => student.schoolFamily  )
     students :Student[];

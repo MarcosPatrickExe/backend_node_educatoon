@@ -15,13 +15,13 @@ export class Student{
 
     @Column({ type: 'char varying', length: 100 })
     name :string;
-
+/*
     @Column({ type: 'char varying', length: 20 })
     login :string;
 
     @Column({ type: 'char varying', length: 20 })
     password :string;
-
+*/
     @Column({ type: 'int'})
     progress :string;
 

@@ -15,7 +15,7 @@ async function initialize() {
         app.use( express.json() );//JSON serao tipo de dado usado pela API
 
         app.get('/', (request :Request, response :Response)=>{
-            response.json({message: "success!!"});
+          //  response.json({message: "success!!"});
             response.send("okay!!");
         });
 

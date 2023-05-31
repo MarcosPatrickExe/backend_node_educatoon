@@ -5,7 +5,7 @@ import { SchoolFamily } from './SchoolFamily';
 @Entity('family_members')
 export class FamilyMember{
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn({ name:'ID_family_member'})
     IDfamilyMember :number;
 
     @ManyToOne(()=> SchoolFamily, (cf :SchoolFamily) => cf.familyMembers )
