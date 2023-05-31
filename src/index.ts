@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import { appDataSource } from './data-source';
 import 'dotenv/config'; // mt necessario para reconhecer o arquivo .env dentro do Node
+import routes from './routes';
+
 
 
 async function initialize() {
@@ -9,15 +11,17 @@ async function initialize() {
         await appDataSource.initialize();
         console.log("Connection with database has been estabished!!!");
 
-
         const app = express();
 
         app.use( express.json() );//JSON serao tipo de dado usado pela API
 
+        app.use( routes );
+/*
         app.get('/', (request :Request, response :Response)=>{
           //  response.json({message: "success!!"});
             response.send("okay!!");
         });
+*/
 
         const appPort = process.env.APPLICATION_PORT;
 
