@@ -13,7 +13,7 @@ export class Student{
     @JoinColumn({name :'ID_school_family'}) // definindo nome da foreign key
     schoolFamily :SchoolFamily; //ID_school :number;
 
-    @Column({ type: 'char varying', length: 100 })
+    @Column({ type: 'character varying', length: 100 })
     name :string;
 /*
     @Column({ type: 'char varying', length: 20 })

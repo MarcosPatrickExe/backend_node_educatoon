@@ -13,10 +13,10 @@ export class Teacher{
     @JoinColumn({ name: 'ID_school_family'})
     schoolFamily :SchoolFamily;
 
-    @Column({ type: 'char varying', length :100 })
+    @Column({ type: 'character varying', length :100 })
     name :string;
 
-    @Column({ type: 'char varying', length :30 })
+    @Column({ type: 'character varying', length :30 })
     discipline :string;
 
 //  @Column()

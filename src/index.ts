@@ -29,20 +29,5 @@ async function initialize() {
         console.log("Error de inicializacao do DataSource: "+ error);
     }
 }
-/*
-.catch((error :any)=>{
-    console.log("ERRO DE CONEXAO COM O DATABASE: "+ error);
-});
-
-*/
 
 initialize();
-
-
-
-
-
-
-
-
-

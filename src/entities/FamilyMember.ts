@@ -12,7 +12,7 @@ export class FamilyMember{
     @JoinColumn({ name:'ID_school_family' })
     schoolFamily :SchoolFamily;
 
-    @Column({type: 'char varying', length: 100 })
+    @Column({type: 'character varying', length: 100 })
     name :string;
 
     @Column({type :'int'})

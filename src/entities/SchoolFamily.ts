@@ -10,7 +10,7 @@ export class SchoolFamily{
     @PrimaryGeneratedColumn() // chave-primaria e auto-incremento
     ID_school_family: number;
 
-    @Column({ type: 'char varying', length :80})
+    @Column({ type: 'character varying', length :80})
     name: string;
 
     @Column({ type: 'int', nullable: true})
@@ -19,7 +19,7 @@ export class SchoolFamily{
     @Column({ type: 'int', nullable: true})
     CPF :number;
 
-    @Column({ type: 'char varying', length: 10})
+    @Column({ type: 'character varying', length: 10})
     plan_type :string;
 
     @Column({ type: 'date' })
@@ -31,13 +31,13 @@ export class SchoolFamily{
     @Column({ type: 'date' })
     payday :Date;
 
-    @Column({ type: 'char varying', nullable :true, length: 30})
+    @Column({ type: 'character varying', nullable :true, length: 30})
     state :string;
 
-    @Column({ type: "char varying", nullable :true, length: 30 })
+    @Column({ type: "character varying", nullable :true, length: 30 })
     city :string;
 
-    @Column({type: 'char varying', nullable :true, length: 50 })
+    @Column({type: 'character varying', nullable :true, length: 50 })
     streetName :string;
     
     @Column()
