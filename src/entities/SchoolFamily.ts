@@ -8,16 +8,16 @@ import { FamilyMember } from "./FamilyMember";
 export class SchoolFamily{
 
     @PrimaryGeneratedColumn() // chave-primaria e auto-incremento
-    ID_school_family: number;
+    ID_school_family: string;
 
     @Column({ type: 'character varying', length :80})
     name: string;
 
-    @Column({ type: 'int', nullable: true})
-    CNPJ :number;
+    @Column({ type: 'bigint', nullable: true})
+    CNPJ :string;
 
-    @Column({ type: 'int', nullable: true})
-    CPF :number;
+    @Column({ type: 'bigint', nullable: true})
+    CPF :string;
 
     @Column({ type: 'character varying', length: 10})
     plan_type :string;
@@ -49,11 +49,11 @@ export class SchoolFamily{
     @Column()
     password :string;
 
-    @Column({ type: 'int', nullable: true })
-    phone :number;
+    @Column({ type: 'bigint', nullable: true })
+    phone :string;
 
-    @Column({ type: 'int'})
-    CEP :number;
+    @Column({ type: 'bigint'})
+    CEP :string;
 
     @OneToMany(() => Student, (student :Student) => student.schoolFamily  )
     students :Student[];
