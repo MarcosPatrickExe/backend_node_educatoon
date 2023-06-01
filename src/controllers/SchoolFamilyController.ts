@@ -26,7 +26,7 @@ type SchoolFamilyType ={
 
 export class SchoolFamilyController{
 
-    async createSchoolFamily(req :Request, res :Response){
+    async addSchoolFamily(req :Request, res :Response){
       /*  let schoolFamilyRepo = appDataSource.getRepository( SchoolFamily).extend({
             findStudentByName(){
                 // ao criar metodos personalizaveis dentro de um repository inline e q se
@@ -42,8 +42,8 @@ export class SchoolFamilyController{
         console.log("Objeto recebido:  \n \n", JSON.stringify(schoolFamily) );
 
         if(!schoolFamily.CPF && !schoolFamily.CPF){
-            console.log("CPF e CNPJ nao podem ser vazios simultaneamente!!!!");
-            res.status(400).send("CPF nao pode ser vazio!!!!");
+            console.log("CPF and CNPJ cannot be empty simultaneously...");
+            res.status(400).send("CPF cannot be empty..");
 
         }else{
             try{
